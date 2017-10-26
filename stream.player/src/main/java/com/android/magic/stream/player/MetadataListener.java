@@ -19,5 +19,5 @@ public interface MetadataListener {
      *
      * @param metadata the currently playing stream's metadata
      */
-    public void onMetadataChanged(@Nullable final String metadata);
+    void onMetadataChanged(@Nullable final String metadata);
 }

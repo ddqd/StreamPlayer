@@ -41,51 +41,51 @@ public interface StreamPlayer {
      *
      * @param url the stream that will be played
      */
-    public void play(@NonNull final String url);
+    void play(@NonNull final String url);
 
     /**
      * Pauses the currently playing stream
      */
-    public void pause();
+    void pause();
 
     /**
      * Stops the currently playing stream
      */
-    public void stop();
+    void stop();
 
     /**
      * Shuts down completely the player
      */
-    public void shutDown();
+    void shutDown();
 
     /**
      * Retrieves the playing URL or null if there's no url currently playing
      *
      * @return the url of the radio playing or null
      */
-    public String getPlayingUrl();
+    String getPlayingUrl();
 
     /**
      * Register a listener to be notified about player states
      *
      * @param listener
      */
-    public void registerStreamPlayerListener(StreamPlayerListener listener);
+    void registerStreamPlayerListener(StreamPlayerListener listener);
 
     /**
      * Unregister the {@link com.android.magic.stream.player.StreamPlayerListener}
      */
-    public void unregisterStreamPlayerListener();
+    void unregisterStreamPlayerListener();
 
     /**
      * Register a listener to be notified about track changes for the current stream
      */
-    public void registerTrackListener(MetadataListener listener);
+    void registerTrackListener(MetadataListener listener);
 
     /**
      * Unregister the track listener
      */
-    public void unregisterTrackListener();
+    void unregisterTrackListener();
 
 
 }

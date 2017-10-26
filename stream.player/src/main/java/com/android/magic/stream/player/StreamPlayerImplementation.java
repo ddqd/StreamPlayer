@@ -5,6 +5,7 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
+import android.os.Build;
 import android.os.IBinder;
 import android.support.annotation.NonNull;
 import android.util.Log;
@@ -158,7 +159,13 @@ import android.util.Log;
         else {
             Log.d(LOG_TAG, "new instance of service");
             //start service and bind to it
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                mContext.startForegroundService(intent);
+            } else {
+                mContext.startService(intent);
+            }
             mContext.startService(intent);
+
             mContext.bindService(intent, mConnection, Context.BIND_AUTO_CREATE);
 
         }
@@ -201,7 +208,7 @@ import android.util.Log;
      */
     private boolean mediaPlayerServiceRunning() {
         ActivityManager manager = (ActivityManager) mContext.getSystemService(
-                mContext.ACTIVITY_SERVICE);
+                Context.ACTIVITY_SERVICE);
 
         for (ActivityManager.RunningServiceInfo service : manager.getRunningServices(
                 Integer.MAX_VALUE)) {

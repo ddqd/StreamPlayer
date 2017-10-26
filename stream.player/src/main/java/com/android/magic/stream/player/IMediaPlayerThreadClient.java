@@ -9,19 +9,19 @@ package com.android.magic.stream.player;
      * A callback made by a MediaPlayerThread onto its clients to indicate that a player is
      * initializing.
      */
-    public void onInitializePlayerStart();
+    void onInitializePlayerStart();
 
     /**
      * A callback made by a MediaPlayerThread onto its clients to indicate that a player was
      * successfully initialized.
      */
-    public void onPlaying();
+    void onPlaying();
 
     /**
      * A callback made by a MediaPlayerThread onto its clients to indicate that a player has
      * stopped.
      */
-    public void onStop();
+    void onStop();
 
     /**
      * A callback made by a MediaPlayerThread onto its clients to indicate that a player
@@ -30,5 +30,5 @@ package com.android.magic.stream.player;
      * @param what  - the what returned by {@link android.media.MediaPlayer}#onError
      * @param extra - the extra returned by {@link android.media.MediaPlayer}#onError
      */
-    public void onError(int what, int extra);
+    void onError(int what, int extra);
 }

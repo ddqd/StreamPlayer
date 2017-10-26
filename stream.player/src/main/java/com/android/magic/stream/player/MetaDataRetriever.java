@@ -89,11 +89,7 @@ import java.util.regex.Pattern;
                 metaDataLength = b * 16;
             }
 
-            if (count > metaDataOffset + 1 && count < (metaDataOffset + metaDataLength)) {
-                inData = true;
-            } else {
-                inData = false;
-            }
+            inData = count > metaDataOffset + 1 && count < (metaDataOffset + metaDataLength);
             if (inData) {
                 if (b != 0) {
                     metaData.append((char) b);

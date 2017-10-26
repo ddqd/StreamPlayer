@@ -9,7 +9,7 @@
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name">
-        <service android:name=".MediaPlayerService"></service>
+        <service android:name=".MediaPlayerService"/>
 
         <receiver android:name=".MusicIntentReceiver">
             <intent-filter>

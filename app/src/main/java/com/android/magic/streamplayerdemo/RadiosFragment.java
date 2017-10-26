@@ -7,7 +7,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.ImageView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -15,8 +14,8 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
+import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.InjectView;
 
 /**
  * Displays a list of radios and allows playing radios
@@ -34,12 +33,12 @@ public class RadiosFragment extends android.support.v4.app.Fragment {
     public View onCreateView(
             LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        View rootView = inflater.inflate(R.layout.fragment_main, container, false);
+        final View rootView = inflater.inflate(R.layout.fragment_main, container, false);
 
         mPlayerController = PlayerController.getInstance(getActivity());
 
-        mRadiosList = (ListView) rootView.findViewById(R.id.radios);
-        mPlayerView = (PlayerView) rootView.findViewById(R.id.player);
+        mRadiosList = rootView.findViewById(R.id.radios);
+        mPlayerView = rootView.findViewById(R.id.player);
 
         final List<String> radios = new ArrayList<String>();
         radios.add("http://streams.greenhost.nl:8080/concertzenderlive");
@@ -68,11 +67,11 @@ public class RadiosFragment extends android.support.v4.app.Fragment {
     }
 
     static class ViewHolder {
-        @InjectView(R.id.radio_title)
+        @BindView(R.id.radio_title)
         TextView title;
 
         public ViewHolder(View view) {
-            ButterKnife.inject(this, view);
+            ButterKnife.bind(this, view);
         }
     }
 
